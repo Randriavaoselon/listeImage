@@ -1,0 +1,136 @@
+{% extends "base/baseImage.html" %}
+{% block title %} Liste des arbres{% endblock title%}
+{% load static %}
+{% block content %}
+
+<style>
+    /*bootstrap VS:5*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,300;1,900&family=Raleway:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@700&display=swap');
+*{
+font-family: 'Montserrat', sans-serif;
+}
+
+
+.redressed {
+font-family: Arial, Helvetica, sans-serif, cursive ;
+}
+
+.merriweather {
+font-family: Arial, Helvetica, sans-serif, serif;
+}
+
+.cc-navbar {
+background-color: rgba(0, 0, 0, 0.55);
+font-family: Arial, Helvetica, sans-serif;
+box-shadow: 1px 1px 3px rgba(255, 255, 255, 0.54);
+z-index: 99;
+}
+
+.cc-navbar .nav-link {
+border-bottom: 1px solid transparent;
+transition: padding-bottom .4s ease-in-out, border-color .3s ease;
+}
+
+.cc-navbar .nav-link:hover{
+padding-bottom: 20px;
+border-bottom-color: var(--bs-teal);
+}
+
+.banner,
+.order-form {
+background-size: cover;
+height: 800px;
+}
+
+.order-form {
+height: 500px;
+}
+
+.banner .banner-desc {
+font-size: 48px;
+font-weight: 400;
+color: #fff;
+}
+
+.btn-order {
+color: var(--bs-teal);
+border-color: var(--bs-teal);
+transition: 0.5s;
+}
+.btn-order:hover,
+.btn-order:active {
+color: #fff;
+background-color: var(--bs-teal);
+}
+
+/*blog style*/
+
+.blog{
+
+/*background-color: rgb(207, 200, 200);*/
+margin: 4em 0;
+padding: 1em;
+position: relative;
+
+
+}
+.blog h1{
+color:#161514;
+margin: 2em;
+}
+.blog .card{
+box-shadow: 0 0 20px #ccc;
+}
+.blog .card img{
+width: 100%;
+height: 12em;
+}
+
+.blog .card-title{
+color:#11100e;
+font-family: 'Montserrat', sans-serif;
+
+}
+.blog .card-body{
+padding: 1em;
+
+}
+
+body{
+    background-color: rgb(10, 51, 51);
+}
+</style>
+{% include 'navbar/navbarListeVehicule.html' %}
+
+<section class="py-5 merriweather">
+    <div class="blog" id="blog"> 
+        <div class="container">
+            <div class="row">
+                {% for pht in images %}
+                <div class="col-md-4 col-lg-4 col-sm-12">
+                    <div class="card">
+                        <div class="card-img">
+                            <picture>
+                                <img src="{{pht.imgs.url}}" class="img-fluid">
+                            </picture>
+                        </div>
+                        
+                        <div class="card-body">
+                        <h4 class="card-title" style="color: blue;"></h4>
+                        <p class="card-text"><strong>{{pht.titre}}</strong></p> 
+                            
+                        </div>
+                        <div class="card-footer">
+                                <a href="" class="btn btn-success">Voir détail</a>
+                                <a href="" class="btn btn-primary">Réserver maintenant</a>
+                        </div>
+                    </div><br>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div> 
+</section>
+
+{% endblock %}
+
